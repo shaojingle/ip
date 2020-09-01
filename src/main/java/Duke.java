@@ -7,7 +7,7 @@ public class Duke {
         Task[] list = new Task[100];
         int listcounter = 0;
 
-        while(true) {
+        while(true){
             Scanner sc = new Scanner(System.in);
             String line = sc.nextLine();
             if(line.equals("bye")){
