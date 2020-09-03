@@ -26,8 +26,8 @@ public class Duke {
                 System.out.println("Nice! I've marked this task as done:" + System.lineSeparator() + list[a-1].toString());
 
             } else if((line.substring(0,4)).equals("todo")) {
-                String todostring = line.substring(5);
-                Todo td = new Todo(todostring);
+                String todoString = line.substring(5);
+                Todo td = new Todo(todoString);
                 list[listcounter] = td;
                 System.out.println("Got it. I've added this task:" + System.lineSeparator() + list[listcounter].toString()
                 + System.lineSeparator() + "Now you have " + (listcounter+1) + " tasks in the list.");
@@ -35,9 +35,9 @@ public class Duke {
 
             } else if((line.substring(0,8)).equals("deadline")){
                 int findindex = line.indexOf("/");
-                String deadlinestring = line.substring(9,findindex);
-                String deadlineby = line.substring(findindex+1);
-                Deadline dl = new Deadline(deadlinestring, deadlineby);
+                String deadlineString = line.substring(9,findindex);
+                String deadlineBy = line.substring(findindex+1);
+                Deadline dl = new Deadline(deadlineString, deadlineBy);
                 list[listcounter] = dl;
                 System.out.println("Got it. I've added this task:" + System.lineSeparator() + list[listcounter].toString()
                         + System.lineSeparator() + "Now you have " + (listcounter+1) + " tasks in the list.");
@@ -45,9 +45,9 @@ public class Duke {
 
             } else if ((line.substring(0,5)).equals("event")){
                 int findindex = line.indexOf("/");
-                String eventstring = line.substring(6,findindex);
-                String eventby = line.substring(findindex+1);
-                Event e = new Event(eventstring, eventby);
+                String eventString = line.substring(6,findindex);
+                String eventBy = line.substring(findindex+1);
+                Event e = new Event(eventString, eventBy);
                 list[listcounter] = e;
                 System.out.println("Got it. I've added this task:" + System.lineSeparator() + list[listcounter].toString()
                         + System.lineSeparator() + "Now you have " + (listcounter+1) + " tasks in the list.");
