@@ -2,9 +2,18 @@ public class Task {
     protected String description;
     protected boolean isDone;
 
-    public Task(String description) {
-        this.description = description;
-        this.isDone = false;
+    public Task(String description) throws DukeException {
+        try {
+            if(description=="") {
+                throw new DukeException();
+            }
+            else{
+                this.description = description;
+                this.isDone = false;
+            }
+        } catch (DukeException e){
+            System.out.println("Description cannot be empty!");
+        }
     }
 
     public String getStatusIcon() {
