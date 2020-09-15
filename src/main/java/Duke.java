@@ -10,7 +10,7 @@ public class Duke {
         while(true){
             Scanner sc = new Scanner(System.in);
             String line = sc.nextLine();
-            String[] action = line.split(" ");
+            String[] action = line.split(" ", 2);
 
             if(action[0].equals("bye")){
                 System.out.println("Bye. Hope to see you again soon!");
@@ -43,8 +43,9 @@ public class Duke {
 
             } else if(action[0].equals("deadline")){
                 try {
-                    String deadlineBy = action[2].substring(1);
-                    Deadline dl = new Deadline(action[1], deadlineBy);
+                    int slashIndex = action[1].indexOf("/");
+                    String deadlineBy = action[1].substring(slashIndex+1);
+                    Deadline dl = new Deadline(action[1].substring(0,slashIndex-1), deadlineBy);
                     list[listcounter] = dl;
                     System.out.println("Got it. I've added this task:" + System.lineSeparator() + list[listcounter].toString()
                             + System.lineSeparator() + "Now you have " + (listcounter + 1) + " tasks in the list.");
@@ -55,8 +56,9 @@ public class Duke {
 
             } else if (action[0].equals("event")){
                 try {
-                    String eventBy = action[2].substring(1);
-                    Event e = new Event(action[1], eventBy);
+                    int slashIndex = action[1].indexOf("/");
+                    String eventBy = action[1].substring(slashIndex+1);
+                    Event e = new Event(action[1].substring(0, slashIndex-1), eventBy);
                     list[listcounter] = e;
                     System.out.println("Got it. I've added this task:" + System.lineSeparator() + list[listcounter].toString()
                             + System.lineSeparator() + "Now you have " + (listcounter + 1) + " tasks in the list.");
@@ -65,6 +67,15 @@ public class Duke {
                     System.out.println("Oops! The description of an event cannot be empty!");
                 }
 
+            } else if (action[0].equals("delete")){
+                System.out.println("Noted. I've removed this task:");
+                int indexToDelete = Integer.parseInt(action[1]);
+                System.out.println(list[indexToDelete-1]);
+                listcounter--;
+                for(int j=(indexToDelete-1); j<listcounter; j++){
+                    list[j] = list[j+1];
+                }
+                System.out.println("Now you have " + listcounter + " tasks in the list.");
             } else{
                 System.out.println("Oops! I'm sorry I have no idea what that means!");
             }
