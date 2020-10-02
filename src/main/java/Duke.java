@@ -13,29 +13,29 @@ public class Duke {
 
             String[] action = line.split(" ", 2);
 
-            if(action[0].equals("bye")){
+            if(action[0].equals("bye")) {
                 System.out.println("Bye. Hope to see you again soon!");
                 TM.refreshList();
                 break;
 
-            } else if(action[0].equals("list")){
+            } else if (action[0].equals("list")) {
                 TM.listTask();
 
-            } else if(action[0].equals("done")){
+            } else if (action[0].equals("done")) {
                 TM.addDone(action[1]);
 
-            } else if(action[0].equals("todo")) {
+            } else if (action[0].equals("todo")) {
                 TM.addTodo(action[1]);
 
-            } else if(action[0].equals("deadline")){
+            } else if (action[0].equals("deadline")) {
                 TM.addDeadline(action[1]);
 
-            } else if (action[0].equals("event")){
+            } else if (action[0].equals("event")) {
                 TM.addEvent(action[1]);
 
-            } else if (action[0].equals("delete")){
+            } else if (action[0].equals("delete")) {
                 TM.deleteTask(action[1]);
-            } else{
+            } else {
                 System.out.println("Oops! I'm sorry I have no idea what that means!");
             }
         }
