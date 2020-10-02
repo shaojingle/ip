@@ -35,6 +35,10 @@ public class Duke {
 
             } else if (action[0].equals("delete")) {
                 TM.deleteTask(action[1]);
+
+            } else if (action[0].equals("find")){
+                TM.findTask(action[1]);
+
             } else {
                 System.out.println("Oops! I'm sorry I have no idea what that means!");
             }

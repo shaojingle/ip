@@ -168,4 +168,13 @@ public class TaskManager {
             System.out.println("Oops! The description of a done cannot be empty!");
         }
     }
+
+    public static void findTask(String action){
+        System.out.println("Here are the matching tasks in your list:");
+        for(int i=0;i<listcounter;i++){
+            if(list[i].description.contains(action)){
+                System.out.println((i+1) + "." + list[i].toString());
+            }
+        }
+    }
 }
