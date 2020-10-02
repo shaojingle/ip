@@ -1,26 +1,24 @@
-# Duke project template
+** Shao Jing Duke User Guide **
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
-
-## Setting up in Intellij
-
-Prerequisites: JDK 11, update Intellij to the most recent version.
-
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first)
-1. Set up the correct JDK version, as follows:
-   1. Click `Configure` > `Structure for New Projects` and then `Project Settings` > `Project` > `Project SDK`
-   1. If JDK 11 is listed in the drop down, select it. If it is not, click `New...` and select the directory where you installed JDK 11
-   1. Click `OK`
-1. Import the project into Intellij as follows:
-   1. Click `Open or Import`.
-   1. Select the project directory, and click `OK`
-   1. If there are any further prompts, accept the defaults.
-1. After the importing is complete, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()`. If the setup is correct, you should see something like the below:
-   ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+1. Open the ./ip project in Intellij.
+2. Build & Run the file (Duke.java is the main file!)
+3. The program will search for a Duke.txt file from the ./ip project directory. If there is an existing file,
+the program will read and create each line. If not, the program will prompt the user to create one.
+4. Refer to the following commands and syntax for the use of the program:
+-List the current tasks:
+list
+-Add a todo task:
+todo task
+-Add a deadline task:
+deadline task /by
+-Add an event task:
+event task /by
+-Mark a task as done:
+done task
+-Delete a task from task list:
+delete task
+-Find tasks:
+find task
+-Exit the program:
+bye
+5. When the user inputs "bye", the program will overwrite the Duke.txt file with the updated task list before exitting the program.
