@@ -16,6 +16,10 @@ public class Task {
         }
     }
 
+    /**
+     * status icon of the task whether done/not done
+     * @return string of a tick/cross
+     */
     public String getStatusIcon() {
         return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
     }

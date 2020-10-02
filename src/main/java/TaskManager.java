@@ -11,6 +11,12 @@ public class TaskManager {
     public static Task[] list = new Task[100];
     public static int listcounter = 0;
 
+    /**
+     * prints the existing Duke file task list and adds them to program's task list
+     * @param filePath  directory of file Duke.txt
+     * @throws FileNotFoundException when file Duke.txt do not exist
+     * @throws DukeException when there are other errors in the Duke.txt text
+     */
     public static void printFileContents(String filePath) throws FileNotFoundException, DukeException {
         File f = new File(filePath);
         Scanner s = new Scanner(f);
@@ -53,6 +59,13 @@ public class TaskManager {
         }
         s.close();
     }
+
+    /**
+     * rewrite the Duke.txt file before program exits
+     * @throws IOException when there is error in the text to write
+     * @throws FileNotFoundException when there is no existing Duke.txt file to delete
+     * @throws NoSuchFileException same as above
+     */
     public static void refreshList() throws IOException, FileNotFoundException, NoSuchFileException {
         File newFile = new File("DukeList.txt");
         try{
@@ -96,6 +109,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * constructs the task manager of the program
+     */
     public TaskManager(){
         try{
             printFileContents("DukeList.txt");
@@ -104,6 +120,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * lists all the current tasks in the program
+     */
     public static void listTask(){
         System.out.println("Here are the tasks in your list:");
         for(int i=0;i<listcounter;i++){
@@ -111,6 +130,11 @@ public class TaskManager {
         }
     }
 
+    /**
+     * adds a todo task into the task list
+     * @param action the task to do
+     * @throws DukeException when the user gives the wrong syntax for adding a todo
+     */
     public static void addTodo(String action)throws DukeException {
         try {
             String description = action;
@@ -123,6 +147,12 @@ public class TaskManager {
             System.out.println("Oops! The description of a todo cannot be empty!");
         }
     }
+
+    /**
+     * adds a deadline task into the task list
+     * @param action the task to do
+     * @throws DukeException when the user gives the wrong syntax for adding a todo
+     */
     public static void addDeadline(String action)throws DukeException {
         try {
             int slashIndex = action.indexOf("/");
@@ -136,6 +166,12 @@ public class TaskManager {
             System.out.println("Oops! The description of a deadline cannot be empty!");
         }
     }
+
+    /**
+     * adds an event task into the task list
+     * @param action the task to do
+     * @throws DukeException when the user gives the wrong syntax for adding a todo
+     */
     public static void addEvent(String action)throws DukeException{
         try {
             int slashIndex = action.indexOf("/");
@@ -149,6 +185,11 @@ public class TaskManager {
             System.out.println("Oops! The description of an event cannot be empty!");
         }
     }
+
+    /**
+     * deletes a task from the task list
+     * @param action the task to delete
+     */
     public static void deleteTask(String action){
         System.out.println("Noted. I've removed this task:");
         int indexToDelete = Integer.parseInt(action);
@@ -159,6 +200,11 @@ public class TaskManager {
         }
         System.out.println("Now you have " + listcounter + " tasks in the list.");
     }
+
+    /**
+     * marks a task from the task list as done
+     * @param action the task to mark
+     */
     public static void addDone(String action){
         try {
             int a = Integer.parseInt(action);
@@ -169,6 +215,10 @@ public class TaskManager {
         }
     }
 
+    /**
+     * finds the matching task from the task list and prints them out
+     * @param action the task to find
+     */
     public static void findTask(String action){
         System.out.println("Here are the matching tasks in your list:");
         for(int i=0;i<listcounter;i++){
